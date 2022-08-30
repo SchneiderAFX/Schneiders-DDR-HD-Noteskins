@@ -10,8 +10,6 @@ Based on peter's DDR Noteskins
 
 - [5.1.0-new*](https://drive.google.com/file/d/1DiCF3n95tawbsTIJyn5bmY5rG4AS9Ydx/view?usp=sharing) / [ITGMania](https://www.itgmania.com/) **RECOMENDED BUILD**
 
-- [5.0.12](https://www.stepmania.com/download/)
-
 - [OUTFOX](https://projectoutfox.com/)
 
 <sub>*build date: 2022-07-20</sub>
