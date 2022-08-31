@@ -87,7 +87,7 @@ return Def.ActorFrame {
 	
 	--Mine Explosion Commands
 	NOTESKIN:LoadActor( Var "Button", "HitMine Explosion" ) .. {
-		InitCommand=cmd(blend,"BlendMode_Add";diffusealpha,0);
-		HitMineCommand=NOTESKIN:GetMetricA("GhostArrowBright", "HitMineCommand");
+		InitCommand=NOTESKIN:GetMetricA("GhostArrowBright", "MineInitCommand"),
+		HitMineCommand=NOTESKIN:GetMetricA("GhostArrowBright", "HitMineCommand"),
 	},
 }

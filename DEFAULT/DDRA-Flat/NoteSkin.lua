@@ -66,6 +66,7 @@ ret.PartsToRotate =
 	["Flash Bright"] = false,
 	["Flash Dim"] = true,
 	["Tap Note"] = true,
+	["Tap Mine"] = true,
 	["Tap Fake"] = true,
 	["Tap Lift"] = true,
 	["Tap Addition"] = true,
