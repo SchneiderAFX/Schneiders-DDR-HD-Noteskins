@@ -84,8 +84,6 @@ ret.Rotate =
 	Down = 0,
 	Left = 90,
 	Right = -90,
-	UpLeft = 135,
-	UpRight = 225,
 };
 
 -- Parts that should be Redirected to _Blank.png
