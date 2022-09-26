@@ -31,19 +31,28 @@ ret.RedirTable =
 --But SM can be an ass in some cases, and some codes jut wont work if you dont have the noteskin on FallbackNoteSkin=common in the metric.ini 
 local OldRedir = ret.Redir;
 ret.Redir = function(sButton, sElement)
-	sButton, sElement = OldRedir(sButton, sElement);
+    sButton, sElement = OldRedir(sButton, sElement);
+    local sPlayer = Var "Player";
+    local Reverse = string.find(GAMESTATE:GetPlayerState(sPlayer):GetPlayerOptionsString("ModsLevel_Preferred"):lower(), "reverse");
 
-	if not string.find(sElement, "Head") and
-	not string.find(sElement, "Explosion") then
-		if string.find(sElement, "Hold") or
-		string.find(sElement, "Hold") then
-			return sButton, sElement;
-		end
-	end
+    if not string.find(sElement, "Head") and
+    not string.find(sElement, "Explosion") then
+        if string.find(sElement, "Hold") or
+        string.find(sElement, "Hold") then
+            if Reverse then
+                if (sButton == "Up") then
+                    return "Down", sElement;
+                elseif (sButton == "Down") then
+                    return "Up", sElement;
+                end
+            end
+            return sButton, sElement;
+        end
+    end
 
-	sButton = ret.RedirTable[sButton];
+    sButton = ret.RedirTable[sButton];
 
-	return sButton, sElement;
+    return sButton, sElement;
 end
 
 local OldFunc = ret.Load;
