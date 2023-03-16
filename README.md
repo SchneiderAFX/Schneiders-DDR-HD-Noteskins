@@ -18,13 +18,13 @@ Based on peter's DDR Noteskins
 
 **Pete Lawrence** : For starting this project and making this work possible
 
-**Jousway** : ASCII shape and code help
+**Jousway** : ASCII Shape (Classic and Cyber) and code help
 
-**fesonic** : ASCII shape help
+**fesonic** : ASCII shape (Classic and X) help
 
-**Curilang** : Code optimization and sanity check
+**Curilang** : ASCII Shape (X), code optimization and sanity check
 
-**OUTFOX Discord** : for answering my stupid question and and bearing with my stupidity <3
+**OUTFOX Discord server** : for answering my stupid question and and bearing with my stupidity <3
 
 **And everyone that helped in one way on another in this little proyect. Thank you so much you beutiful people.**
 
