@@ -1,4 +1,4 @@
-# Schneider's Classic DDR Noteskins
+# Schneider's DDR HD Noteskins
 
 Based on peter's DDR Noteskins
 
