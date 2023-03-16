@@ -10,7 +10,7 @@ Based on peter's DDR Noteskins
 
 - [5.1.0-new*](https://drive.google.com/file/d/1m5H4UXPKWHxiIV1eFW7GpySu8Mdrfm6p/view?usp=sharing) / [ITGMania](https://www.itgmania.com/) **RECOMENDED BUILD**
 
-- [OUTFOX](https://projectoutfox.com/)
+- [OutFox](https://projectoutfox.com/)
 
 <sub>*build date: 2022-09-25</sub>
 
@@ -24,7 +24,7 @@ Based on peter's DDR Noteskins
 
 **Curilang** : ASCII Shape (X), code optimization and sanity check
 
-**OUTFOX Discord server** : for answering my stupid question and and bearing with my stupidity <3
+**OutFox Discord server** : for answering my stupid question and and bearing with my stupidity <3
 
 **And everyone that helped in one way on another in this little proyect. Thank you so much you beutiful people.**
 
