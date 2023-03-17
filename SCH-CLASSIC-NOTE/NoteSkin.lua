@@ -29,6 +29,9 @@ ret.RedirTable =
 --Also check out commen it has a load of lua codes in files there
 --Just play a bit with lua its not that hard if you understand coding
 --But SM can be an ass in some cases, and some codes jut wont work if you dont have the noteskin on FallbackNoteSkin=common in the metric.ini 
+
+
+
 local OldRedir = ret.Redir;
 ret.Redir = function(sButton, sElement)
     sButton, sElement = OldRedir(sButton, sElement);
