@@ -10,7 +10,7 @@ Based on peter's DDR Noteskins
 
 - [5.1.0-new*](https://drive.google.com/file/d/1m5H4UXPKWHxiIV1eFW7GpySu8Mdrfm6p/view?usp=sharing) / [ITGMania](https://www.itgmania.com/) **RECOMENDED BUILD**
 
-- [OutFox](https://projectoutfox.com/)
+- [OutFox](https://projectoutfox.com/) **RECOMENDED BUILD**
 
 <sub>*build date: 2022-09-25</sub>
 
