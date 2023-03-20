@@ -30,6 +30,6 @@ Based on peter's DDR Noteskins
 
 # LICENSE
 
-as Pete said:
+as Peter said:
 
 > All my noteskins are public domain under the Unlicense. In simple terms, I do not give half a flying fuck about how my noteskins are used, shared, modified, sold as merchandise, with or without credit. Anyone is free to do whatever with them as long as they remain in the public domain.
