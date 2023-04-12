@@ -12,7 +12,7 @@ Based on peter's DDR Noteskins
 
 - [OutFox](https://projectoutfox.com/) **<---- RECOMENDED BUILD**
 
-<sub>*build date: 2022-09-25</sub>
+<sub>*build date: 2023-04-12</sub>
 
 # CREDITS
 
