@@ -52,8 +52,8 @@ return Def.ActorFrame {
 		
 		--Perfect (Inner Marvelous Flash)
 		W2Command=function(self) self:finishtweening()
-			self:diffuse(color("#b9b9b9")):zoom(0.52)
-			:linear(3/60):zoom(0.65)
+			self:diffuse(color("#ffffff")):zoom(0.54)
+			:linear(3/60):zoom(0.7)
 			:sleep(2/60):diffuse(0,0,0,1)
 		end,
 	},

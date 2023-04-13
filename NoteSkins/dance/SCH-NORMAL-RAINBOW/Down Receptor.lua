@@ -6,7 +6,7 @@
 
 --press receptor animation
 local function pressreceptor(player)
-	return function(self) --self:finishtweening()
+	return function(self) self:finishtweening()
 			self:zoom(0.9):sleep(1/60)
 			:linear(4/60):zoom(1.0)
 	end
