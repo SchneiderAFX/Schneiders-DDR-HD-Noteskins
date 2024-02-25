@@ -8,68 +8,23 @@
 --So as I pray, Unlimited Stepman Works
 
 
-local ret = ... or {};
+local NSKIN = {}
 
---Defining on which direction the other directions should be bassed on
---This will let us use less files which is quite handy to keep the noteskin directory nice
---Do remember this will Redirect all the files of that Direction to the Direction its pointed to
-ret.RedirTable =
+NSKIN.ButtonRedir =
 {
 	Up = "Down",
 	Down = "Down",
 	Left = "Down",
 	Right = "Down",
 	UpLeft = "Down",
-	UpRight = "Down",
-};
+	UpRight = "Down"
+}
 
--- < 
---Between here we usally put all the commands the noteskin.lua needs to do, some are extern in other files
---If you need help with lua go to  http://kki.ajworld.net/lua/ssc/Lua.xml there are a bunch of codes there
---Also check out commen it has a load of lua codes in files there
---Just play a bit with lua its not that hard if you understand coding
---But SM can be an ass in some cases, and some codes jut wont work if you dont have the noteskin on FallbackNoteSkin=common in the metric.ini 
-local OldRedir = ret.Redir;
-ret.Redir = function(sButton, sElement)
-    sButton, sElement = OldRedir(sButton, sElement);
-    local sPlayer = Var "Player";
-    local Reverse = string.find(GAMESTATE:GetPlayerState(sPlayer):GetPlayerOptionsString("ModsLevel_Preferred"):lower(), "reverse");
+NSKIN.ElementRedir =
+{
+}
 
-    if not string.find(sElement, "Head") and
-    not string.find(sElement, "Explosion") then
-        if string.find(sElement, "Hold") or
-        string.find(sElement, "Hold") then
-            if Reverse then
-                if (sButton == "Up") then
-                    return "Down", sElement;
-                elseif (sButton == "Down") then
-                    return "Up", sElement;
-                end
-            end
-            return sButton, sElement;
-        end
-    end
-
-    sButton = ret.RedirTable[sButton];
-
-    return sButton, sElement;
-end
-
-local OldFunc = ret.Load;
-function ret.Load()
-	local t = OldFunc();
-
-	--Explosion should not be rotated; it calls other actors.
-	if Var "Element" == "Explosion"	then
-		t.BaseRotationZ = nil;
-	end
-	return t;
-end
--- >
-
-
--- Parts of noteskins which we want to rotate
-ret.PartsToRotate =
+NSKIN.PartsToRotate =
 {
 	["Receptor"] = true,
 	["Flash Bright"] = false,
@@ -84,22 +39,20 @@ ret.PartsToRotate =
 	["Hold Head Inactive"] = true,
 	["Roll Explosion"] = true,
 	["Roll Head Active"] = true,
-	["Roll Head Inactive"] = true,
-};
--- Defined the parts to be rotated at which degree
-ret.Rotate =
+	["Roll Head Inactive"] = true
+}
+
+NSKIN.Rotate =
 {
 	Up = 180,
 	Down = 0,
 	Left = 90,
 	Right = -90,
 	UpLeft = 135,
-	UpRight = 225,
-};
+	UpRight = 225
+}
 
--- Parts that should be Redirected to _Blank.png
--- you can add/remove stuff if you want
-ret.Blank =
+NSKIN.Blank =
 {
 	["Hold Topcap Active"] = true,
 	["Hold Topcap Inactive"] = true,
@@ -108,8 +61,54 @@ ret.Blank =
 	["Hold Tail Active"] = true,
 	["Hold Tail Inactive"] = true,
 	["Roll Tail Active"] = true,
-	["Roll Tail Inactive"] = true,
-};
+	["Roll Tail Inactive"] = true
+}
 
--- dont forget to close the ret cuz else it wont work ;>
-return ret;
+
+function NSKIN.Load()
+	local sButton = Var "Button"
+	local sElement = Var "Element"
+	local sPlayer = Var "Player"
+
+	sElement = string.gsub(sElement, "Simple", "")
+
+	local Reverse = string.find(GAMESTATE:GetPlayerState(sPlayer):GetPlayerOptionsString("ModsLevel_Preferred"):lower(), "reverse")
+
+	local Button = NSKIN.ButtonRedir[sButton] or sButton
+	local Element = NSKIN.ElementRedir[sElement] or sElement
+
+	if (string.find(Element, "Active") or
+			string.find(Element, "Inactive")) and
+			(not string.find(Element, "Head") and
+			not string.find(Element, "Roll")) then
+		Button = sButton
+		if Reverse and sButton == "Up" then Button = "Down" end
+		if Reverse and sButton == "Down" then Button = "Up" end
+	end
+
+	local Actor = loadfile(NOTESKIN:GetPath(Button, Element))
+
+	if type(Actor) == "function" then
+		Actor = Actor(nil)
+	else
+		Actor = Def.Sprite {
+			Texture = NOTESKIN:GetPath(Button, Element),
+			HoldUpdateCommand = function(self) self:customtexturerect(0, -(self:GetHoldLength() / self:GetHeight()), 1, 0) end
+		}
+	end
+
+	if NSKIN.Blank[sElement] then
+		Actor = Def.Actor {}
+		if Var "SpriteOnly" then
+			Actor = Def.Sprite { Texture = NOTESKIN:GetPath("", "_blank") }
+		end
+	end
+
+	if NSKIN.PartsToRotate[sElement] then
+		Actor.BaseRotationZ = NSKIN.Rotate[sButton] or nil
+	end
+
+	return Actor
+end
+
+return NSKIN
