@@ -17,7 +17,7 @@ end
 
 -- Regular Flash COMMAND
 local function dimflash(thecolour)
-	return function(self)
+	return function(self) self:finishtweening()
 		self:diffuse(thecolour):diffusealpha(0.9):zoom(1)
 		:linear(9/60):diffuse(0,0,0,1):zoom(1.25)
 	end
@@ -65,9 +65,15 @@ return Def.ActorFrame {
 			self.emitnumber = 1
 			self.emissions = self:GetChild("holdflash")
 		end,
-		HoldingOnCommand=function(self) self.emitting = true; self:playcommand("Emit") end,
+		HoldingOnCommand=function(self) 
+			self.emitting = true; 
+			self:finishtweening():playcommand("Emit") 
+		end,
 		HoldingOffCommand=function(self) self.emitting = false end,
-		RollOnCommand=function(self) self.emitting = true; self:playcommand("Emit") end,
+		RollOnCommand=function(self) 
+			self.emitting = true; 
+			self:finishtweening():playcommand("Emit") 
+		end,
 		RollOffCommand=function(self) self.emitting = false end,
 		EmitCommand=function(self)
 			self.emissions[self.emitnumber]:finishtweening():playcommand("Flash")

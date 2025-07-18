@@ -8,11 +8,11 @@ Based on peter's DDR Noteskins
 
 - [5.1.0-b2](https://github.com/stepmania/stepmania/releases/tag/v5.1.0-b2)
 
-- [5.1.0-new*](https://drive.google.com/file/d/1Uk4kIocAp7Aj4LNpzuhehO7qW6XyjAQl/view?usp=share_link) / [ITGMania](https://www.itgmania.com/) **<---- RECOMENDED BUILD**
+- [5.1.0-new*](https://drive.google.com/file/d/1lZNWndWcsNDZlF1pwY02g1ZrQUQMqj5M/view?usp=sharing) / [ITGMania](https://www.itgmania.com/) **<---- RECOMENDED BUILD**
 
 - [OutFox](https://projectoutfox.com/) **<---- RECOMENDED BUILD**
 
-<sub>*build date: 2023-04-12</sub>
+<sub>*build date: 2025-07-18 + Noteskin overlaping fix</sub>
 
 # CREDITS
 

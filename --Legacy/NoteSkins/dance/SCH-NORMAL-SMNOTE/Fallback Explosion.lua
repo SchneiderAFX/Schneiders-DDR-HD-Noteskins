@@ -65,9 +65,15 @@ return Def.ActorFrame {
 			self.emitnumber = 1
 			self.emissions = self:GetChild("holdflash")
 		end,
-		HoldingOnCommand=function(self) self.emitting = true; self:playcommand("Emit") end,
+		HoldingOnCommand=function(self) 
+			self.emitting = true; 
+			self:finishtweening():playcommand("Emit") 
+		end,
 		HoldingOffCommand=function(self) self.emitting = false end,
-		RollOnCommand=function(self) self.emitting = true; self:playcommand("Emit") end,
+		RollOnCommand=function(self) 
+			self.emitting = true; 
+			self:finishtweening():playcommand("Emit") 
+		end,
 		RollOffCommand=function(self) self.emitting = false end,
 		EmitCommand=function(self)
 			self.emissions[self.emitnumber]:finishtweening():playcommand("Flash")
